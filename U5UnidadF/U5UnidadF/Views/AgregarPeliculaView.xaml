@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Agregar"
+             x:Class="U5UnidadF.Views.AgregarPeliculaView" BackgroundColor="#1d1d27">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White"></Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AgregarCommand}" Text="Agregar"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="10">
+
+        <Label TextColor="White" Text="Titulo:"></Label>
+        <Entry TextColor="White" Text="{Binding Pelicula.Titulo}"></Entry>
+
+        <Label TextColor="White" Text="Duracion(Min):"></Label>
+        <Entry TextColor="White"  Keyboard="Numeric" Text="{Binding Pelicula.DuracionMin}"></Entry>
+
+        <Label TextColor="White" Text="Calificacion:"></Label>
+        <Entry Keyboard="Numeric" TextColor="White" Text="{Binding Pelicula.Calificacion}" ></Entry>
+
+        <Label TextColor="White" Text="Director:"></Label>
+        <Entry TextColor="White" Text="{Binding Pelicula.Director}"></Entry>
+
+        <Label TextColor="White" Text="Año:"></Label>
+        <Entry TextColor="White" Keyboard="Numeric" Text="{Binding Pelicula.Año}" ></Entry>
+
+        <Label TextColor="White" Text="Sinopsis"></Label>
+        <Entry TextColor="White" Text="{Binding Pelicula.Sinopsis}"></Entry>
+
+        <Label TextColor="White" Text="Genero"></Label>
+        <Entry TextColor="White" Text="{Binding Pelicula.Genero}"></Entry>
+
+        <Label TextColor="White" Text="Portada"></Label>
+        <Entry TextColor="White" Text="{Binding Pelicula.Portada}"></Entry>
+
+        <Label Text="{Binding Error}" HorizontalOptions="Center" TextColor="White" FontSize="Small"></Label>
+
+    </StackLayout>
+</ContentPage>

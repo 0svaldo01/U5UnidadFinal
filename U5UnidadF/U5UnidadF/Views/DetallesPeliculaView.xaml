@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="U5UnidadF.Views.DetallesPeliculaView" BackgroundColor="#1d1d27" >
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+
+        <StackLayout Margin="30,40,30,10">
+
+            <Label HorizontalOptions="Center" Text="{Binding Titulo}"></Label>
+            <Label HorizontalOptions="Center" Text="{Binding Año}"></Label>
+
+            <Frame CornerRadius="10" BackgroundColor="#505c74">
+            <Grid BackgroundColor="#58637b">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+
+                <Image Grid.RowSpan="4" Grid.Row="1" HeightRequest="200" WidthRequest="150" Source="{Binding Portada}"></Image>
+
+
+                <Label Grid.Row="5" Text="{Binding DuracionMin}"></Label>
+                <Label Grid.Row="5" Text="        min"></Label>
+                <Label Grid.Row="6" Text="{Binding Calificacion}"></Label>
+                <Label Grid.Row="6" Text="      ★"></Label>
+                <Label Grid.Row="7" Text="{Binding Director}"></Label>
+
+            </Grid>
+            </Frame>
+            <Label HorizontalOptions="Center" Text="{Binding Genero}"></Label>
+            <Label Margin="20" Text="{Binding Sinopsis}"></Label>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

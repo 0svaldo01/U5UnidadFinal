@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Editar"
+             x:Class="U5UnidadF.Views.EditarPeliculaView" BackgroundColor="#1d1d27" >
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White"></Setter>
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="White"></Setter>
+        </Style>
+        
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Command="{Binding GuardarCommand}" Text="Guardar" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <StackLayout Margin="15">
+
+        <Label Text="Titulo:"></Label>
+        <Entry Text="{Binding Pelicula.Titulo}"></Entry>
+
+        <Label Text="Duracion(Min):"></Label>
+        <Entry Keyboard="Numeric" Text="{Binding Pelicula.DuracionMin}"></Entry>
+
+        <Label Text="Calificacion:"></Label>
+        <Entry Keyboard="Numeric" Text="{Binding Pelicula.Calificacion}" ></Entry>
+
+        <Label Text="Director:"></Label>
+        <Entry Text="{Binding Pelicula.Director}"></Entry>
+
+        <Label Text="Año:"></Label>
+        <Entry Keyboard="Numeric" Text="{Binding Pelicula.Año}" ></Entry>
+
+        <Label Text="Sinopsis"></Label>
+        <Entry Text="{Binding Pelicula.Sinopsis}"></Entry>
+
+        <Label Text="Genero"></Label>
+        <Entry Text="{Binding Pelicula.Genero}"></Entry>
+
+        <Label Text="Portada"></Label>
+        <Entry Text="{Binding Pelicula.Portada}"></Entry>
+
+        <Label Text="{Binding Error}" HorizontalOptions="Center" TextColor="Red" FontSize="Small"></Label>
+
+    </StackLayout>
+
+
+</ContentPage>

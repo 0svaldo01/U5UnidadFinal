@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              Title="Popular"
+             xmlns:model="clr-namespace:U5UnidadF.Models" xmlns:viewmodels="clr-namespace:U5UnidadF.ViewModels"
+             x:Class="U5UnidadF.Views.ListaPeliculasView"  BackgroundColor="#1d1d27">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White"></Setter>
+        </Style>
+        
+        
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewmodels:PeliculaViewModel x:Name="avme"></viewmodels:PeliculaViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar" Text="+"></ToolbarItem>
+     
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView>
+
+        <CollectionView  ItemsSource="{Binding Cartelera }" Margin="10,15,10,15"  BackgroundColor="#1d1d27">
+
+            <CollectionView.ItemTemplate>
+                
+                <DataTemplate>
+
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItem Clicked="SwipeItem_Clicked" CommandParameter="{Binding .}" BackgroundColor="#ec4648" Text="Eliminar"></SwipeItem>
+                            <SwipeItem Command="{Binding Source={x:Reference avme}, Path=EditarCommand}" CommandParameter="{Binding .}" BackgroundColor="#96db5a" Text="Editar"></SwipeItem>
+
+                            
+                           
+                        </SwipeView.RightItems>
+
+                        <Frame CornerRadius="10" BackgroundColor="#505c74">
+                        <Grid Margin="10,15,10,15"  BackgroundColor="#58637b">
+                            
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference avme}, Path=MostrarDetallesCommand}"
+                                    CommandParameter="{Binding .}"></TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".40*"></ColumnDefinition>
+                                <ColumnDefinition Width=".60*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Column="0" Grid.RowSpan="4"  Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" Source="{Binding Portada}"></Image>
+
+
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Titulo}"></Label>
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding DuracionMin}"></Label>
+                            <Label Grid.Column="1" Grid.Row="2" Text="{Binding Genero}"></Label>
+                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Director}"></Label>
+                            <Label Grid.Column="1" Grid.Row="4" Text="{Binding Calificacion}"></Label>
+
+                        </Grid>
+                        </Frame>
+                        </SwipeView> 
+                    
+                </DataTemplate>
+               
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+    </ScrollView>
+
+</ContentPage>
